@@ -1,7 +1,7 @@
 // server/routes/auth.js
 import express from 'express';
 import sql from '../db.js';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import { sendVerificationCode } from '../mail.js';
 
 const router = express.Router();
