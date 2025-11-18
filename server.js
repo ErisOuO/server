@@ -1,15 +1,18 @@
-import express from 'express';
-import cors from 'cors';
-import dotenv from 'dotenv';
-import authRoutes from './routes/auth.js';
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import { connectDB } from "./database.js";
+import authRoutes from "./routes/auth.js";
 
 dotenv.config();
+connectDB();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use('/auth', authRoutes);
+app.use("/auth", authRoutes);
 
-const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => console.log(`✅ Servidor escuchando en puerto ${PORT}`));
+app.listen(process.env.PORT, () =>
+  console.log(`🚀 Servidor listo en puerto ${process.env.PORT}`)
+);
